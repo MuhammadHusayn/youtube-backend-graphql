@@ -1,4 +1,4 @@
-import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core'
+import { ApolloServerPluginDrainHttpServer, ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core'
 import { ApolloServer } from 'apollo-server-express'
 import express from 'express'
 import http from 'http'
@@ -14,6 +14,7 @@ import schema from './modules/index.js'
         schema,
         csrfPrevention: true,
         plugins: [
+            ApolloServerPluginLandingPageGraphQLPlayground(),
             ApolloServerPluginDrainHttpServer({ httpServer })
         ],
     })
