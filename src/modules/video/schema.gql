@@ -1,8 +1,6 @@
-type Query {}
-
 scalar Upload
 
-type Mutaion {
+type Mutation {
     addVideo(
         video_title: String!
         file: Upload!
@@ -12,7 +10,6 @@ type Mutaion {
 type Response {
     status: String!
     message: String!
-    data: [Video]
 }
 
 type Video {

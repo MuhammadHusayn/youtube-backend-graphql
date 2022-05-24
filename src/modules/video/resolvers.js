@@ -1,5 +1,8 @@
 import model from './model.js'
 import { GraphQLUpload } from 'graphql-upload'
+import fs from "fs"
+import path from "path"
+import { finished } from 'stream/promises'
 
 export default {
     Mutation: {
@@ -30,15 +33,15 @@ export default {
                 video_type: mimetype
             })
 
-            const videos = await model.adminVideos({ page, limit, search, userId })
-            const addedVideo = videos.find(vd => vd.video_name == video_name)
+            // const videos = await model.adminVideos({ page, limit, search, userId })
+            // const addedVideo = videos.find(vd => vd.video_name == video_name)
 
             return {
                 status: 200,
                 message: "Video added successfully!",
-                data: addedVideo
+                // data: addedVideo
             }
         }
     },
-    GraphQLUpload
+    Upload: GraphQLUpload
 }

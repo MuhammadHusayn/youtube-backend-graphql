@@ -6,8 +6,8 @@ const CREATE_VIDEO = `
         ($1, $2, $3, $4)
 `
 
-function createVideo({ userId, video_title, video_link, video_type }) {
-    db(CREATE_VIDEO, userId, video_title, video_link, video_type)
+async function createVideo({ userId, video_title, video_link, video_type }) {
+    return await db(CREATE_VIDEO, userId, video_title, video_link, video_type)
 }
 
 export default {
