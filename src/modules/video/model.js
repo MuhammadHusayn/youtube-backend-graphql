@@ -5,7 +5,6 @@ const UPDATE_VIDEO = `
 `
 const updateVideo = async(video_title,videoId,userId) =>{
     const video = await db(UPDATE_VIDEO,video_title,videoId,userId)
-    console.log(video);
     return video
 }
 export default {
