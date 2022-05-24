@@ -1,2 +1,23 @@
 type Query {}
 
+type Mutaion {
+    addVideo(
+        video_title: String!
+        file: Upload!
+    ): Response!
+}
+
+type Response {
+    status: String!
+    message: String!
+    data: [Video]
+}
+
+type Video {
+    video_id: ID!
+    user_id: ID!
+    video_title: String!
+    video_link: String!
+    video_created_at: String!
+    video_deleted_at: String
+}
