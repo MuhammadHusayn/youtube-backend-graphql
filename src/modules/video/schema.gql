@@ -1,5 +1,8 @@
-type Query {}
-
 type Mutation {
-    changeVideo(videoId:ID! videoTitle: String!):Response!
+    changeVideo(videoId:ID! videotitle:String!): Response!
+}
+type Response {
+    status: Int!
+    message: String!
+    data: Video
 }
