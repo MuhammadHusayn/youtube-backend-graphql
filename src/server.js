@@ -2,10 +2,12 @@ import {
     ApolloServerPluginDrainHttpServer,
     ApolloServerPluginLandingPageGraphQLPlayground
 } from 'apollo-server-core'
+import { graphqlUploadExpress } from 'graphql-upload'
 import { ApolloServer } from 'apollo-server-express'
 import queryParser from './utils/queryParser.js'
 import express from 'express'
 import http from 'http'
+import JWT from "./utils/jwt.js"
     import path from 'path'
 
     import './config.js'
@@ -17,6 +19,7 @@ import schema from './modules/index.js'
     const httpServer = http.createServer(app)
 
     app.use(express.static(path.join(process.cwd(), 'uploads')))
+    app.use(graphqlUploadExpress())
 
     const server = new ApolloServer({
         schema,
