@@ -5,6 +5,7 @@ import {
 import { ApolloServer } from 'apollo-server-express'
 import queryParser from './utils/queryParser.js'
 import express from 'express'
+import JWT from 'jsonwebtoken'
 import http from 'http'
     import path from 'path'
 
