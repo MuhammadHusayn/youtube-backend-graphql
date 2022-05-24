@@ -1,3 +1,32 @@
 type Query {
-    user: String!
+    users(
+        userId: ID 
+        pagination: Pagination = {}
+        sort: UserSort = {}
+    ): [User!]!
+}
+
+enum SortOptions {
+    toLargest
+    toSmallest
+}
+
+input Pagination {
+    page: Int = 1
+    limit: Int = 10
+}
+
+input UserSort {
+    byName: SortOptions
+    byTime: SortOptions
+}
+
+scalar Link
+scalar DateTime
+
+type User {
+    userId: ID!
+    userImg: Link!
+    username: String!
+    userCreatedAt: DateTime!
 }
