@@ -1,5 +1,14 @@
 import db from '../../utils/db.js'
 
+const POST_USER = `
+    insert into users (username,password,user_img ) values ($1,$2,$3) returning *
+`
+
+const USERS2=`
+    select * from users
+
+`
+
 const USERS = `
     select
         u.user_id,
@@ -39,6 +48,18 @@ const getUsers = ({ userId, pagination: { limit, page }, sort }) => {
     return users
 }
 
+const postUser=async(username,password,fileName)=>{
+    const user = await db(POST_USER,username,password,fileName)
+    return user
+}
+const users =async()=>{
+    const user =await db(USERS2)
+    console.log(user);
+}
+
+
 export default {
-    getUsers
+    getUsers,
+    postUser,
+    users
 }
