@@ -1,4 +1,5 @@
 import model from './model.js'
+import { GraphQLUpload } from 'graphql-upload'
 
 export default {
     Mutation: {
@@ -38,5 +39,6 @@ export default {
                 data: addedVideo
             }
         }
-    }
+    },
+    GraphQLUpload
 }

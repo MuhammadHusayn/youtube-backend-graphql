@@ -1,5 +1,7 @@
 type Query {}
 
+scalar Upload
+
 type Mutaion {
     addVideo(
         video_title: String!
