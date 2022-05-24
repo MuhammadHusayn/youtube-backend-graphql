@@ -20,8 +20,6 @@ const USERS = `
     offset $1 limit $2
 `
 
-const USER = ``
-
 const getUsers = ({ userId, pagination: { limit, page }, sort }) => {
     let objectKeys = { byName: 1, byTime: 2 }
 
