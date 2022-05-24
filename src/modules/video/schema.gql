@@ -1,2 +1,18 @@
-type Query {}
+type Query {
+    adminVideos(
+        pagination: Pagination = {}
+        search: String
+    ): [Video!]
+}
 
+type Video {
+    video_id: ID!
+    video_title: String!
+    video_type: String!
+    video_link: String!
+}
+
+input Pagination {
+    page: Int
+    limit: Int
+}
