@@ -6,6 +6,16 @@ type Query {
     ): [User!]!
 }
 
+type Mutation{
+    login(username:String! password:String!):AuthResponse!
+    register(
+        username:String!
+        password:String!
+        file:Upload!
+    ):AuthResponse!
+}
+
+
 enum SortOptions {
     toLargest
     toSmallest
@@ -23,10 +33,17 @@ input UserSort {
 
 scalar Link
 scalar DateTime
+scalar Upload
 
 type User {
     userId: ID!
     userImg: Link!
     username: String!
     userCreatedAt: DateTime!
+}
+
+type AuthResponse{
+    status:Int!
+    message:String!
+    token:String
 }
