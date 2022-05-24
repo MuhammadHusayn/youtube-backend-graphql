@@ -1,7 +1,7 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
 
 import UserModule from './user/index.js'
-import VideoModule from './user/index.js'
+import VideoModule from './video/index.js'
 
 export default makeExecutableSchema({
     typeDefs: [
